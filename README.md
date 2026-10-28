@@ -3,7 +3,7 @@
 A web page that tells a Muslim living in Korea whether a Korean dish fits their dietary rules, and why.
 G3 · Group Assignment 2 (Taboos in Islam) · Introduction to Religion · Fall 2026.
 
-**Live page:** `https://<your-username>.github.io/can-i-eat-this/` (after GitHub Pages is turned on)
+**Live page:** https://yang-wb908.github.io/can-i-eat-this/
 
 ## How it works
 
@@ -23,7 +23,8 @@ Dishes outside the set are estimated from the words in their name and marked low
 `Xenova/siglip-base-patch16-224`, 4-bit, about 60 MB, downloaded once from Hugging Face and cached by the browser.
 Each dish has a one-line visual description (`tools/dishes.json`); its text embedding is precomputed and stored in `index.html`, so only the image half of the model is loaded.
 
-Zero-shot accuracy on 192 web photos of the 100 dishes: first guess 52%, right dish within the top three 71%.
+Zero-shot accuracy on 357 freely licensed Wikimedia Commons photos covering 97 of the 100 dishes: first guess 52%, right dish within the top three 76%.
+Web photos may have been in the model's training data, so photos taken in a real cafeteria can score lower.
 The page therefore always shows three candidates and asks the user to pick when it is unsure.
 
 ## Run locally

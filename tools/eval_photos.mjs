@@ -5,6 +5,7 @@
 import { AutoProcessor, SiglipVisionModel, RawImage } from "@huggingface/transformers";
 import fs from "fs";
 import path from "path";
+import { fileURLToPath } from "url";
 
 const MODEL = "Xenova/siglip-base-patch16-224";
 const html = fs.readFileSync(new URL("../index.html", import.meta.url), "utf8");
@@ -20,7 +21,7 @@ const dishes = decode(EMB.dishes, EMB.scales, EMB.dim);
 
 const proc = await AutoProcessor.from_pretrained(MODEL);
 const vm = await SiglipVisionModel.from_pretrained(MODEL, { dtype: "q4" });
-const root = new URL("./eval-photos/", import.meta.url).pathname;
+const root = fileURLToPath(new URL("./eval-photos/", import.meta.url));
 let n = 0, top1 = 0, top3 = 0; const misses = [];
 for (const ko of fs.readdirSync(root)) {
   if (!EMB.order.includes(ko)) { console.warn(`skip folder "${ko}" (not one of the 100 dishes)`); continue; }
