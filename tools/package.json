@@ -4,6 +4,7 @@
   "type": "module",
   "scripts": {
     "embed": "node build_embeddings.mjs",
+    "protos": "node build_protos.mjs",
     "eval": "node eval_photos.mjs"
   },
   "dependencies": {
